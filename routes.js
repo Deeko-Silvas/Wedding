@@ -13,15 +13,20 @@ router.get(
 
 router.get(
   '/:guest',
-  services.guests.getGuest.service
+  asyncHandler(services.guests.getGuest.service)
 );
 
 router.post(
   '/',
-  services.guests.post.service
+  asyncHandler(services.guests.post.service)
 );
 
 router.put(
   '/:id',
-  services.guests.put.service
+  asyncHandler(services.guests.put.service)
+);
+
+router.delete(
+  '/:id',
+  asyncHandler(services.guests.delete.service)
 );

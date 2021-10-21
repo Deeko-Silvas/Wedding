@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const slugify = require('slugify');
 
 const guestsSchema = new Schema({
   _id: {
@@ -12,6 +13,7 @@ const guestsSchema = new Schema({
     type: String,
     required: true,
     enum: [
+      'Wedding Party',
       'Phil Family',
       'Vikki Family',
       'Joint Friends',
@@ -98,6 +100,11 @@ const guestsSchema = new Schema({
     type: String,
     default: null
   }
+});
+
+guestsSchema.pre('save', function (next) {
+  this.parsedName = slugify(`${this.firstName} ${this.lastName}`, { lower: true });
+  next();
 });
 
 const guests = mongoose.model('Guests', guestsSchema);

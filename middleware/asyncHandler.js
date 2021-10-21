@@ -2,9 +2,8 @@
 
 const asyncHandler = service => (req, res, next) =>
   Promise.resolve(service(req, res, next)).catch(err => {
-    console.log('test');
-    console.log(err);
-    return next;
+    if (err instanceof Error) return next(err);
+    return next(new Error(err));
   });
 
 module.exports = asyncHandler;
