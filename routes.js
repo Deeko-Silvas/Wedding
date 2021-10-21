@@ -12,6 +12,11 @@ router.get(
 );
 
 router.get(
+  '/status',
+  asyncHandler(services.guests.status)
+);
+
+router.get(
   '/:guest',
   asyncHandler(services.guests.getGuest.service)
 );

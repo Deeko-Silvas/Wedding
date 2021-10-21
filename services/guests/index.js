@@ -5,5 +5,6 @@ module.exports = {
   getGuest: require('./get-guest'),
   post: require('./post'),
   put: require('./put'),
-  delete: require('./delete')
+  delete: require('./delete'),
+  status: require('./common/status')
 };
