@@ -7,7 +7,7 @@ const asyncHandler = require('./middleware/asyncHandler');
 const router = (module.exports = express.Router());
 
 router.get(
-  '/api',
+  '/',
   (req, res) => {
     res.send('Helooooooooooooo!!!!!');
   }
