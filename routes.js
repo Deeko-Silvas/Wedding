@@ -7,31 +7,33 @@ const asyncHandler = require('./middleware/asyncHandler');
 const router = (module.exports = express.Router());
 
 router.get(
-  '/',
-  asyncHandler(services.guests.get.service)
+  '/api',
+  (req, res) => {
+    res.send('Helooooooooooooo!!!!!');
+  }
 );
 
 router.get(
-  '/status',
+  '/api/status',
   asyncHandler(services.guests.status)
 );
 
 router.get(
-  '/:guest',
+  '/api/:guest',
   asyncHandler(services.guests.getGuest.service)
 );
 
 router.post(
-  '/',
+  '/api/',
   asyncHandler(services.guests.post.service)
 );
 
 router.put(
-  '/:id',
+  '/api/:id',
   asyncHandler(services.guests.put.service)
 );
 
 router.delete(
-  '/:id',
+  '/api/:id',
   asyncHandler(services.guests.delete.service)
 );
