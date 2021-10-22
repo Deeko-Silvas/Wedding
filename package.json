@@ -4,7 +4,7 @@
   "description": "Service to handle wedding guestlist",
   "main": "bin/server.js",
   "scripts": {
-    "start": "NODE_ENV=production node server",
+    "start": "node bin/server.js",
     "dev": "nodemon server"
   },
   "author": "Phil livermore",
