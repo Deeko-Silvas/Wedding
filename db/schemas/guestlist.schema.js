@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 const slugify = require('slugify');
 
 const guestsSchema = new Schema({
+  _id: {
+    type: String,
+    unique: true
+  },
   category: {
     type: String,
     required: true,
