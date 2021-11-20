@@ -14,6 +14,11 @@ router.get(
 );
 
 router.get(
+  '/api/',
+  asyncHandler(services.guests.get.service)
+);
+
+router.get(
   '/api/status',
   asyncHandler(services.guests.status)
 );
