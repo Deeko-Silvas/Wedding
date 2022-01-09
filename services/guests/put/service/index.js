@@ -7,7 +7,7 @@ const logger = require('pino')();
 module.exports = async function (req, res) {
   const id = req.params.id;
   const guest = req.body;
-  logger.info({ id, guest });
+  logger.info({ msg: 'guest put start request', id, guest });
 
   if (guest.partnerName) {
     const partnerId = await getPartner(guest.partnerName);
@@ -29,5 +29,6 @@ module.exports = async function (req, res) {
     useFindAndModify: false
   });
 
+  logger.info({ msg: 'guest put end request', updateGuestData });
   return res.status(200).json({ success: true, data: updateGuestData });
 };

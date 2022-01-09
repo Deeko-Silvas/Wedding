@@ -23,11 +23,13 @@ function onError (err) {
 }
 
 process.on('unhandledRejection', (err, promise) => {
+  logger.error(err);
   console.log(`Error: ${err.message}`);
   process.exit(1);
 });
 
 process.on('unhandledRejection', (reason, p) => {
+  logger.error(reason);
   console.log(`Unhandled Rejection at: ${p} reason: ${reason}`);
   process.exit(1);
 });
