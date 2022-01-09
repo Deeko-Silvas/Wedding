@@ -15,7 +15,10 @@ const server = app.listen(
 
 server.on('error', onError);
 
+const logger = require('pino')();
+
 function onError (err) {
+  logger.error(err);
   console.log(err);
 }
 

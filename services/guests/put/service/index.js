@@ -2,10 +2,12 @@
 const guestsModel = require('../../../../db/schemas/guestlist.schema');
 const getPartner = require('../../common/getPartner');
 const slugify = require('slugify');
+const logger = require('pino')();
 
 module.exports = async function (req, res) {
   const id = req.params.id;
   const guest = req.body;
+  logger.info({ id, guest });
 
   if (guest.partnerName) {
     const partnerId = await getPartner(guest.partnerName);
